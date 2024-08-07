@@ -37,6 +37,7 @@ html, body {
     color: aliceblue;
     z-index: 1000;
     width: max-content;
+    padding: 5px;
   }
 
   h1 {
@@ -45,10 +46,39 @@ html, body {
     font-size: 12px;
     font-weight: 300;
   }
+
+  .track-prev {
+    text-align: center;
+    display: none;
+    padding-top: 20px;
+  }
+
+  .error-message {
+    display: none;
+    text-align: center;
+    color: red;
+    padding: 10px 40px;
+  }
+
+  #recommendations {
+    text-align: center;
+  }
     </style>
 </head>
 <body>
     <h1>Визуализация схожести популярных треков Spotify по музыкальным платформам и году выпуска</h1>
+    <div class="error-message" id="error-message">No preview available for this track.</div>
+    <div class="track-prev" id="track-prev">
+      <audio controls id="audio-player" muted>
+        <source id="audio-source" src="" type="audio/mpeg">
+         Your browser does not support the audio element.
+        </audio>
+    </div>
+    <div class="recommendations" id="recommendations-container" style="display: none;">
+      <h6 id="recommendations-title" style="text-align: center; font-size: 12px;"></h6>
+      <ul id="recommendations"></ul>
+    </div>
+    <div id="error-message-recommendation" style="display: none; color: red;">No recommendations available for this track.</div>
     <div class="tooltip" id="tooltip"></div>
     <canvas></canvas>
     <script src="./src/index.js"></script>

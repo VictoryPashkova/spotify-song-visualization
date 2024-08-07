@@ -30,6 +30,7 @@ html, body {
     color: aliceblue;
     z-index: 1000;
     width: max-content;
+    padding: 5px;
   }
 
   h1 {
@@ -37,4 +38,17 @@ html, body {
     padding: 10px 40px;
     font-size: 12px;
     font-weight: 300;
-  }</style><script defer="defer" src="main.js"></script></head><body><h1>Визуализация схожести популярных треков Spotify по музыкальным платформам и году выпуска</h1><div class="tooltip" id="tooltip"></div><canvas></canvas><script src="./src/index.js"></script></body></html>
+  }
+
+  .track-prev {
+    text-align: center;
+    display: none;
+    padding-top: 20px;
+  }
+
+  .error-message {
+    display: none;
+    text-align: center;
+    color: red;
+    padding: 10px 40px;
+  }</style><script defer="defer" src="main.js"></script></head><body><h1>Визуализация схожести популярных треков Spotify по музыкальным платформам и году выпуска</h1><div class="error-message" id="error-message">No preview available for this track.</div><div class="track-prev" id="track-prev"><audio controls id="audio-player" muted><source id="audio-source" src="" type="audio/mpeg">Your browser does not support the audio element.</audio></div><ul id="recommendations"></ul><div id="error-message-recommendation" style="display: none; color: red;">No recommendations available for this track.</div><div class="tooltip" id="tooltip"></div><canvas></canvas><script src="./src/index.js"></script></body></html>

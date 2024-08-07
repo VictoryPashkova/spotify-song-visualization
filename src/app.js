@@ -2,6 +2,7 @@
 import { kmeans } from 'ml-kmeans';
 import cleanCsvFileData from './parser';
 import render from './render';
+import axios from 'axios';
 
 const runApp = async () => {
   const generateUniqueCoordinates = (centroidX, centroidY, offset, clusterId, usedCoordinates) => {
@@ -127,6 +128,35 @@ const runApp = async () => {
 
   const dataForRender = await createDataForVisualisation();
   render(dataForRender);
+
+
+  const clientId = '97d4ba735a344d57a552dc3b58046f27';
+const clientSecret = '041fcf2d40334fda98de236ec5af0bfd';
+
+// URL эндпоинта для получения токена
+const tokenUrl = 'https://accounts.spotify.com/api/token';
+
+// Данные для тела запроса в формате строки
+const requestBody = `grant_type=client_credentials&client_id=${clientId}&client_secret=${clientSecret}`;
+
+// Опции для запроса
+const options = {
+  headers: {
+    'Content-Type': 'application/x-www-form-urlencoded'
+  }
+};
+
+// Отправка запроса на получение токена
+axios.post(tokenUrl, requestBody, options)
+  .then(response => {
+    if(response.data.access_token) {
+      localStorage.setItem('access_token', response.data.access_token);
+    }
+    console.log(localStorage.getItem('access_token'));
+  })
+  .catch(error => {
+    console.error('Error fetching token:', error);
+  });
 };
 
 export default runApp;

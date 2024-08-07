@@ -9,10 +9,10 @@ const cleanCsvFileData = async () => {
 
     const results = Papa.parse(text, { header: true });
     const fileData = results.data;
-    console.log(fileData.find(item => item.Track === 'greedy'));
+    console.log(fileData.find(item => item.Track === 'Look What You Made Me Do'));
     const regex = /^[a-zA-Z.()\s"']+$/;
     const cleanData = fileData.filter(item => regex.test(item.Track) && regex.test(item.Artist) && regex.test(item['Album Name']));
-    console.log(cleanData.find(item => item.Track === 'greedy'));
+    console.log(cleanData.find(item => item.Track === 'Look What You Made Me Do'));
     const dataForApp = cleanData.map(item => {
       const amazonPlaylistCount = Number(item['Amazon Playlist Count'].replace(/,/g, '')) || 0;
       const deezerPlaylistCount = Number(item['Deezer Playlist Count'].replace(/,/g, '')) || 0;
@@ -33,7 +33,7 @@ const cleanCsvFileData = async () => {
         spotifyPlaylistCount,
       };
     });
-    console.log(dataForApp.find(item => item.track === 'greedy'));
+    console.log(dataForApp.find(item => item.track === 'Look What You Made Me Do'));
     return dataForApp;
   }
   catch (error) {
