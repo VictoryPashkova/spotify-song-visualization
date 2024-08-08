@@ -35,7 +35,7 @@
 ## Установка и запуск
 
 1. **Клонируйте репозиторий:**
-git clone https://github.com/ваш-репозиторий/interactive-spotify-map.git
+git clone git@github.com:VictoryPashkova/spotify-song-visualization.git
 
 2. **Установите зависимости:**
 npm install
