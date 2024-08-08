@@ -31,56 +31,24 @@ html, body {
     outline: 0;
     position: relative;
 }
-
-  .tooltip {
-    background-color: black;
-    color: aliceblue;
-    z-index: 1000;
-    width: max-content;
-    padding: 5px;
-  }
-
-  h1 {
-    text-align: center;
-    padding: 10px 40px;
-    font-size: 12px;
-    font-weight: 300;
-  }
-
-  .track-prev {
-    text-align: center;
-    display: none;
-    padding-top: 20px;
-  }
-
-  .error-message {
-    display: none;
-    text-align: center;
-    color: red;
-    padding: 10px 40px;
-  }
-
-  #recommendations {
-    text-align: center;
-  }
     </style>
 </head>
 <body>
-    <h1>Визуализация схожести популярных треков Spotify по музыкальным платформам и году выпуска</h1>
-    <div class="error-message" id="error-message">No preview available for this track.</div>
-    <div class="track-prev" id="track-prev">
-      <audio controls id="audio-player" muted>
+    <h1 style="text-align: center; font-size: 12px; font-weight: 300; padding: 10px 40px;">Визуализация схожести популярных треков Spotify по музыкальным платформам и году выпуска</h1>
+    <div class="error-message" id="error-message" style="display: none; color: red; text-align: center; padding: 10px 40px;">No preview available for this track.</div>
+    <div class="track-prev" id="track-prev" style="text-align: center; display: none; padding-top: 20px;">
+      <audio controls id="audio-player">
         <source id="audio-source" src="" type="audio/mpeg">
          Your browser does not support the audio element.
         </audio>
     </div>
-    <div class="recommendations" id="recommendations-container" style="display: none;">
+    <div class="recommendations" id="recommendations-container" style="display: none; text-align: center;">
       <h6 id="recommendations-title" style="text-align: center; font-size: 12px;"></h6>
       <ul id="recommendations"></ul>
     </div>
-    <div id="error-message-recommendation" style="display: none; color: red;">No recommendations available for this track.</div>
-    <div class="tooltip" id="tooltip"></div>
+    <div id="error-message-recommendation" style="display: none; color: red; text-align: center; padding: 10px 40px;" >К сожалению для трека нет рекоммендаций</div>
+    <div class="tooltip" id="tooltip" style="background-color: black; color: aliceblue; z-index: 1000; width: max-content; padding: 5px;"></div>
     <canvas></canvas>
-    <script src="./src/index.js"></script>
+    <script src="./src/app/index.ts"></script>
 </body>
 </html>
