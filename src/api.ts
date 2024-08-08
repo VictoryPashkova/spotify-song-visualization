@@ -2,8 +2,6 @@ import axios from "axios";
 import { RecommendationTrack, ClickedNode } from './types';
 
 const setToken = async (): Promise<void> => {
-  localStorage.setItem('client_id', '603a416e308c403a83bf7e33be362a1c');
-  localStorage.setItem('client_secret', '5cb5ad810b0045cebc2fae3e4e8f58df');
   const clientId = localStorage.getItem('client_id');
   const clientSecret = localStorage.getItem('client_secret');
 
